@@ -13,6 +13,7 @@
           <button type="button" v-on:click="deleteToDo(item.id)">Delete</button> 
           |<router-link id="editLink" :to="{ name: 'EditPage', params: {id: item.id }}">Edit</router-link>
           |<input id="check" type="checkbox" checked='checked' v-show="item.isComplete" >
+          
         </div>
       </footer>
 
