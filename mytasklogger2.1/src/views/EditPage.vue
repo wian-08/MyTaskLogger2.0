@@ -14,3 +14,12 @@ export default {
     
 }
 </script>
+
+<style>
+p {
+    color: blue;
+}
+h1 {
+    color: blueviolet;
+}
+</style>

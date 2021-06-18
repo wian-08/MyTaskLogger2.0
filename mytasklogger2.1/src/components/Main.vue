@@ -2,26 +2,17 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <div class="wrapper">
-        <h1>Welcome to Your <br/>Task Logger</h1>
+        <!-- <h1>Welcome to Your <br/>Task Logger</h1> -->
       </div>
     <div id="app">
       <footer>
         <input type="text" v-model="searchToDo" placeholder="Search for a task" />
-        <br>
-        
-            <ol>
+        <br><br>
         <div v-for="item in filteredTasks" :key="item.id">
-           <li> {{ item.name }} -
-           <button type="button" v-on:click="deleteToDo(item.id)">Delete</button> 
-           | <router-link :to="{ name: 'Student', params: {id: item.id }}">Edit</router-link>
-           | <input id="check" type="checkbox" checked='checked' v-show="item.isComplete" ></li>
-        </div></ol>
-        <div v-if="editSeen" id="hide">
-            <p>hide me</p>
-            <input type="hidden" v-model="editItem.id"><br/>
-            <input type="text" v-model="editItem.name">
-            <button type="button" v-on:click="updateToDo(editItem)">Update ToDo</button>
-            <button type="button" @click="updateStatus(updateComplete)">Completed</button>
+          {{ item.name }} -
+          <button type="button" v-on:click="deleteToDo(item.id)">Delete</button> 
+          |<router-link id="editLink" :to="{ name: 'EditPage', params: {id: item.id }}">Edit</router-link>
+          |<input id="check" type="checkbox" checked='checked' v-show="item.isComplete" >
         </div>
       </footer>
 
@@ -112,6 +103,12 @@ body{
     margin: 40px auto;
     color: #ff0aa7;
     text-align: center;
+  }
+  #editLink {
+    border: 1px solid black;
+    width: 40px;
+    height: inherit;
+    border-radius: 2px;
   }
   ul{
     padding: 0;
