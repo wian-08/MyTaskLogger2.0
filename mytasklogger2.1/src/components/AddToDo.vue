@@ -32,6 +32,9 @@ export default {
             name: '',
         }
     },
+    mounted() {
+    this.getToDo()
+  },
     methods: {
         getToDo() {
         axios
@@ -40,14 +43,23 @@ export default {
         },
 
         writeToDo() {
-      const todo = { name: this.name };
+          try {
+            if(! document.getElementById('details').value){
+              alert("You didn't enter anything");
+            }else{
+              const todo = { name: this.name };
       axios.post("http://metistestapi.daks.co.za/api/ToDoItem", todo)
       .then(response => {
        this.getToDo();
        this.name = '';
        return response;
-      
   });
+            }
+            
+          } catch (error) {
+            document.getElementById('output').innerHTML = error;
+            
+          }
     }
 }
 }

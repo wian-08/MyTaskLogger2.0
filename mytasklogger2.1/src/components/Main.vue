@@ -12,9 +12,9 @@
             <ol>
         <div v-for="item in filteredTasks" :key="item.id">
            <li> {{ item.name }} -
-           <button type="button" v-on:click="deleteToDo(item.id)">Delete</button> | 
-           <router-link :to="{ name: 'Student', params: {id: item.id }}">Edit</router-link>
-        | <input id="check" type="checkbox" checked='checked' v-show="item.isComplete" ></li>
+           <button type="button" v-on:click="deleteToDo(item.id)">Delete</button> 
+           | <router-link :to="{ name: 'Student', params: {id: item.id }}">Edit</router-link>
+           | <input id="check" type="checkbox" checked='checked' v-show="item.isComplete" ></li>
         </div></ol>
         <div v-if="editSeen" id="hide">
             <p>hide me</p>
@@ -33,7 +33,7 @@
 import axios from "axios";
 
 export default {
-  name: 'HelloWorld',
+  name: 'Main',
   props: {
     msg: String
   },
